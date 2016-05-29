@@ -1,17 +1,19 @@
 var Reflux = require('reflux');
-var Actions = require('./Actions.jsx');
+var Actions = require('./actions.jsx');
 
 var Store = Reflux.createStore({
-  listenables[Actions],
+  listenables: [Actions],
   getFriends: function(){
 
   },
   postFriend: function(name){
     console.log(name);
+    this.fireUpdate();
   },
   //Refresh function
   fireUpdate: function() {
-      this.trigger('change', this.ingredients);
+      console.log(this.friends);
+      this.trigger('change', this.friends);
   }
 });
 
